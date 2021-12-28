@@ -77,6 +77,20 @@ window.addEventListener("load", () => {
         { title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5' }
     ];
 
+    const newDiv = document.createElement("div");
+    document.body.append(newDiv);
+
+    var newH4 = (()=>{
+        for(var s = 0; s < otherCountries.length; s++){
+            const headers= document.createElement("h4");
+            document.body.append(headers);
+            newDiv.appendChild(headers);
+
+            const image= document.createElement("img");
+            document.body.append(image);
+            newDiv.appendChild(image);
+        }
+    })
 
 
     // 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último elemento de la lista.
