@@ -2,7 +2,7 @@
 
 window.addEventListener("load", () => {
 
-    // 1.1 Basandote en el array siguiente, crea una lista ul > li dinámicamente en el html que imprima cada uno de los paises.
+    // 1.1 Basandote en el array siguiente, crea una lista ul > li dinámicamente en el html que imprima cada uno de los paises. RESUELTO!!
 
     const countries = ['Japón', 'Nicaragua', 'Suiza', 'Australia', 'Venezuela'];
 
@@ -15,13 +15,13 @@ window.addEventListener("load", () => {
 
     let content
     var addContent = (() => {
-        for (var i = 0; i < countries.length; i++){
+        for (var i = 0; i < countries.length; i++) {
             const newContent = document.createElement("li");
             document.body.append(newContent);
             newList.appendChild(newContent);
 
             content = document.createTextNode(countries[i])
-            
+
             newContent.appendChild(content);
         }
     })
@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
     bye.remove();
 
 
-    // 1.3 Utiliza el array para crear dinamicamente una lista ul > li de elementos en el div de html con el atributo data-function="printHere".
+    // 1.3 Utiliza el array para crear dinamicamente una lista ul > li de elementos en el div de html con el atributo data-function="printHere".  RESUELTO!!
 
     const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
 
@@ -52,8 +52,8 @@ window.addEventListener("load", () => {
     container.appendChild(newElementList);
 
     let carsModel;
-    var addNewList = (()=>{
-        for(var j = 0; j < cars.length; j++){
+    var addNewList = (() => {
+        for (var j = 0; j < cars.length; j++) {
             const newContentList = document.createElement("li");
             document.body.append(newContentList);
             newElementList.appendChild(newContentList);
@@ -77,20 +77,40 @@ window.addEventListener("load", () => {
         { title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5' }
     ];
 
-    const newDiv = document.createElement("div");
-    document.body.append(newDiv);
+    const imgList = document.createElement("ul");
+    document.body.append(imgList);
 
-    var newH4 = (()=>{
-        for(var s = 0; s < otherCountries.length; s++){
-            const headers= document.createElement("h4");
+    var contentH4;
+    var imgContent;
+    var newH4 = (() => {
+
+        for (var object in otherCountries) {
+
+            const newLi = document.createElement("li");
+            document.body.append(newLi);
+            imgList.appendChild(newLi);
+
+            const newDiv = document.createElement("div");
+            document.body.append(newDiv);
+            newLi.appendChild(newDiv);
+
+
+
+            const headers = document.createElement("h4");
             document.body.append(headers);
             newDiv.appendChild(headers);
 
-            const image= document.createElement("img");
-            document.body.append(image);
-            newDiv.appendChild(image);
+            contentH4 = document.createTextNode(object.title);
+            headers.appendChild(contentH4);
+
+            imgContent = document.createElement("img");
+            document.body.append(imgContent);
+            newDiv.appendChild(imgContent);
         }
-    })
+        
+    });
+
+    newH4(imgList);
 
 
     // 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último elemento de la lista.
